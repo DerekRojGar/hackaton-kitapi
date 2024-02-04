@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación de Canister</title>
+</head>
+<body>
+    <h1>Creación de Canister</h1>
+    <button id="createCanisterBtn">Crear Canister</button>
+    <p id="statusMessage"></p>
+
+    <script>
+        document.getElementById('createCanisterBtn').addEventListener('click', async () => {
+            const response = await fetch('/create-canister', { method: 'POST' });
+            const data = await response.json();
+            if (data.canisterCreated) {
+                document.getElementById('statusMessage').innerText = '¡Se ha creado un nuevo canister!';
+            } else {
+                document.getElementById('statusMessage').innerText = 'Error al crear el canister';
+            }
+        });
+    </script>
+</body>
+</html>
+
+<!--
+
+  <!doctype html>
+
+<html>
+    <head>
+        <title>Hello World</title>
+
+        <script
+            type="module"
+            src="index.ts"
+        ></script>
+    </head>
+
+    <body>
+        <azle-app></azle-app>
+    </body>
+</html>  
+-->
+

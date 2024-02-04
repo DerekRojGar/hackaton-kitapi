@@ -1,0 +1,3 @@
+service: () -> {
+    executeCreateCanister: () -> (record {canister_id:principal});
+}
